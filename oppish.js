@@ -1,10 +1,10 @@
 export default class Oppish {
 
-  static generate(text) {
-    if (text === 'Hello World') {
-      return 'H-opp-ell-opp-o W-opp-or-opp-l-opp-d-opp';
-    }
+  static fix = `opp`;
 
-    throw 'Not Implemented';
+  static generate(text) {
+
+    return text.replace(/(\b\w{1,2}\b)/g,`😸$&😹`).replace(/((?![eiou])[b-z])(?!\1)(?!\w😹)/ig, `$&😼`).replace(/😼😹/g, `😹`).replace(/😼(?!\W|$)/g, `-${Oppish.fix}-`).replace(/😼(?!😹)/g, `-${Oppish.fix}`).replace(/😼/g, ``).replace(/😸(\w{1,2})😹/g, `${Oppish.fix}-$1`);
+
   }
 }
