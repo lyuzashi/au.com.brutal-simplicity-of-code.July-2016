@@ -33,4 +33,20 @@ describe('Oppish Generator', function() {
         expect(Oppish.generate('Fer rn tot')).to.equal('F-opp-er-opp opp-rn t-opp-ot-opp');
     });
 
+    it('should handle apostrophes correctly', () => {
+        expect(Oppish.generate("It's")).to.equal("It-opp-'s-opp");
+    });
+
+    it('should handle two letter apostrophe words correctly', () => {
+        expect(Oppish.generate("I'm")).to.equal("opp-I'm");
+    });
+
+    it('should handle only numbers correctly', () => {
+        expect(Oppish.generate('98')).to.equal('98');
+    });
+
+    it('should handle mixed sentences correctly', () => {
+        expect(Oppish.generate('Time for 10 beers!!!')).to.equal('T-opp-im-opp-e f-opp-or-opp 10 b-opp-eer-opp-s-opp!!!');
+    });
+
 });
