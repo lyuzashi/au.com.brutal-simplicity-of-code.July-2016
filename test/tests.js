@@ -49,4 +49,8 @@ describe('Oppish Generator', function() {
         expect(Oppish.generate('Time for 10 beers!!!')).to.equal('T-opp-im-opp-e f-opp-or-opp 10 b-opp-eer-opp-s-opp!!!');
     });
 
+    it('should handle underscores correctly', () => {
+        expect(Oppish.generate('_Rex_.')).to.equal('_R-opp-ex-opp_.');
+    });
+
 });
