@@ -2,8 +2,8 @@ export default class Oppish {
 
   static fix = `opp`;
   static join = `-`;
-  static wordBoundaries = new RegExp(`\\b[a-z']+\\b|[a-z]+`, `ig`);
-  static nonRepeatingConsonants = new RegExp(`((?![eiou])[b-z])(?!\\1)`, `ig`);
+  static wordBoundaries = new RegExp(`\\b[0-9a-z']+\\b|[0-9a-z]+`, `ig`);
+  static nonRepeatingConsonants = new RegExp(`((?![eiou])[0-9b-z])(?!\\1)`, `ig`);
   static lettersThatCount = new RegExp(`[a-z]`, `ig`);
 
   static generate(text) {

@@ -53,4 +53,8 @@ describe('Oppish Generator', function() {
         expect(Oppish.generate('_Rex_.')).to.equal('_R-opp-ex-opp_.');
     });
 
+    it('should handle ordinals correctly', () => {
+        expect(Oppish.generate('8498465153513505th')).to.equal('opp-8498465153513505th');
+    });
+
 });
