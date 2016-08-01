@@ -1,3 +1,5 @@
+const cache = {};
+
 export default class Oppish {
 
   static fix = `opp`;
@@ -7,9 +9,15 @@ export default class Oppish {
   static lettersThatCount = new RegExp(`[a-z]`, `ig`);
 
   static generate(text) {
-    return text.replace(Oppish.wordBoundaries, word => {
+    return text.replace(Oppish.wordBoundaries, Oppish.word);
+  }
+
+  static word(word) {
+    let output = word;
+    if (cache[word]) {
+      output = cache[word];
+    } else {
       const letters = word.match(Oppish.lettersThatCount);
-      let output = word;
       if (letters && letters.length <= 2) {
         output = [Oppish.fix, word].join(Oppish.join);
       } else if (letters) {
@@ -18,7 +26,9 @@ export default class Oppish {
           return `${p[0]}-${Oppish.fix}${eow}`;
         });
       }
-      return output;
-    });
+      cache[word] = output;
+    }
+    return output;
   }
+
 }
